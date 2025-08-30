@@ -14,7 +14,7 @@ export const authMiddleware = async (req,res,next)=>{
 
         }
         
-        const decoder = jwt.verify(token,process.env.jwt_secret);
+        const decoder = jwt.verify(token,process.env.JWT_SECRET);
         req.user = decoder;
         next()
       
