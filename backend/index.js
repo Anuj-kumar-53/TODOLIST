@@ -1,8 +1,15 @@
 import express from 'express'
 import connectDb from './db/db.js'
 import router from './routes/userRoute.js'
+import todoRouter from './routes/todoRoute.js';
+
+
+
 import cors from "cors";
+
+
 import dotenv from 'dotenv'
+
 dotenv.config({})
 
 const port = process.env.PORT || 5000
@@ -17,6 +24,7 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 app.use('/api',router);
+app.use('/api',todoRouter);
 
 
 connectDb()
